@@ -1,0 +1,42 @@
+
+    <ion-header>
+
+    </ion-header>
+
+    <ion-content>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>LogIn</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+
+              <ion-item>
+                <ion-label position="floating">Username:</ion-label>
+                <ion-input formControlName="username" type="text" placeholder="Enter username..."></ion-input>
+              </ion-item>
+              <p *ngIf="!isUsernameValid">Username is required field!</p>
+              <ion-item>
+                <ion-label position="floating"> Password:</ion-label>
+                <ion-input formControlName="password" type="password" placeholder="Enter password..."></ion-input>
+              </ion-item>
+              <p *ngIf="!isPasswordValid">Password is required field!</p>
+            </ion-card-content>
+
+          </ion-card>
+
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+    <ion-button class="login-button" type="submit" fill="clear" >Login </ion-button>
+  </form>
+
+    </ion-content>
+
+

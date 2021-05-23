@@ -1,0 +1,28 @@
+ion-content {
+  text-align: center;
+
+  form {
+    margin-top: 50%;
+  }
+}
+ion-card-header {
+  background-color: rgb(28, 152, 156);
+}
+ion-card-title {
+  font-weight: bold;
+}
+ion-item {
+  color: #737373;
+}
+
+ion-label {
+  text-transform: uppercase;
+}
+
+.login-button {
+  width: 323px;
+  background-color: rgb(28, 152, 156);
+  color: rgb(195, 243, 245);
+  font-weight: bold;
+  border-radius: 25px;
+}

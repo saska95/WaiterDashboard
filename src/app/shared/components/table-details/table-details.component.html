@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon slot="icon-only" ios="chevron-back-outline" md="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+<ion-title>Table details</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <div class="item-header-holder">
+      <span>Title</span>
+      <span>Quantity</span>
+      <span>Price</span>
+      <span>Amount</span>
+    </div>
+
+
+    <div class="item">
+  <!-- ovo treba genericki da se popuni -->
+  <div class="item-data">
+    <div class="item-title">Coca Cola</div>
+    <div class="item-quantity">2</div>
+    <div class="item-price">150.00</div>
+    <div class="item-amount">300.00</div>
+  </div>
+    <!-- rsd uvek da pise -->
+    <div class="item-icons">
+    <ion-icon name="pencil-outline"></ion-icon>
+    <ion-icon name="add"></ion-icon>
+    <ion-icon name="close"></ion-icon>
+    </div>
+  </div>
+  <div class="item">
+    <!-- ovo treba genericki da se popuni -->
+    <div class="item-data">
+      <div class="item-title">Fanta</div>
+      <div class="item-quantity">3</div>
+      <div class="item-price">130.00</div>
+      <div class="item-amount">390.00</div>
+    </div>
+      <!-- rsd uvek da pise -->
+      <div class="item-icons">
+      <ion-icon name="pencil-outline"></ion-icon>
+      <ion-icon name="add"></ion-icon>
+      <ion-icon name="close"></ion-icon>
+      </div>
+    </div>
+
+
+    <ion-button  expand="block" fill="clear">
+      <ion-icon class="add-item-icon" slot="icon-only" name="add-circle" ></ion-icon>
+    </ion-button>
+
+  <ion-button class="check-button" expand="block" fill="clear" >
+    Check
+  </ion-button>
+
+  </ion-card>
+</ion-content>
