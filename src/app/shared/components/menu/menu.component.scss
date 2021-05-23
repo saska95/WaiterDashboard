@@ -1,0 +1,23 @@
+ion-content {
+  .content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    .menu-holder {
+      display: flex;
+      flex-wrap: wrap;
+      .menu-item {
+        width: 40vw;
+        height: 40vw;
+        margin: 5vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(195, 243, 245);
+        color: rgb(28, 152, 156);
+        border-radius: 8px;
+      }
+    }
+  }
+}

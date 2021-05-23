@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon
+          slot="icon-only"
+          ios="chevron-back-outline"
+          md="arrow-back"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content">
+    <div class="menu-holder">
+      <div
+        class="menu-item"
+        *ngFor="let item of productCategoryArray"
+        (click)="clickOnMenuItem(item)"
+      >
+        {{ item.label }}
+      </div>
+    </div>
+  </div>
+</ion-content>

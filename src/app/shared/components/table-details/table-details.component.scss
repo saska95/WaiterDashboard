@@ -37,6 +37,15 @@ ion-card {
     display: flex;
     justify-content: space-between;
     color: rgb(28, 152, 156);
+    ion-button {
+      margin: 0;
+      width: 20px;
+      height: 20px;
+      --padding-top: 0;
+      --padding-bottom: 0;
+      --padding-end: 0;
+      --padding-start: 0;
+    }
   }
 }
 ion-icon {

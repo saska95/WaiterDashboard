@@ -2,15 +2,18 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button (click)="dismiss()">
-        <ion-icon slot="icon-only" ios="chevron-back-outline" md="arrow-back"></ion-icon>
+        <ion-icon
+          slot="icon-only"
+          ios="chevron-back-outline"
+          md="arrow-back"
+        ></ion-icon>
       </ion-button>
     </ion-buttons>
-<ion-title>Table details</ion-title>
-    </ion-toolbar>
+    <ion-title>Table details</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
   <ion-card>
     <div class="item-header-holder">
       <span>Title</span>
@@ -19,46 +22,36 @@
       <span>Amount</span>
     </div>
 
-
-    <div class="item">
-  <!-- ovo treba genericki da se popuni -->
-  <div class="item-data">
-    <div class="item-title">Coca Cola</div>
-    <div class="item-quantity">2</div>
-    <div class="item-price">150.00</div>
-    <div class="item-amount">300.00</div>
-  </div>
-    <!-- rsd uvek da pise -->
-    <div class="item-icons">
-    <ion-icon name="pencil-outline"></ion-icon>
-    <ion-icon name="add"></ion-icon>
-    <ion-icon name="close"></ion-icon>
-    </div>
-  </div>
-  <div class="item">
-    <!-- ovo treba genericki da se popuni -->
-    <div class="item-data">
-      <div class="item-title">Fanta</div>
-      <div class="item-quantity">3</div>
-      <div class="item-price">130.00</div>
-      <div class="item-amount">390.00</div>
-    </div>
-      <!-- rsd uvek da pise -->
+    <div class="item" *ngFor="let item of orderItemsArray; let index = index">
+      <div class="item-data">
+        <div class="item-title">{{ item.name }}</div>
+        <div class="item-quantity">{{ item.quantity }}</div>
+        <div class="item-price">{{ item.price }}</div>
+        <div class="item-amount">{{ item.amount }}</div>
+      </div>
       <div class="item-icons">
-      <ion-icon name="pencil-outline"></ion-icon>
-      <ion-icon name="add"></ion-icon>
-      <ion-icon name="close"></ion-icon>
+        <ion-button fill="clear" (click)="decreaseQuantity(index)">
+          <ion-icon name="remove-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" (click)="increaseQuantity(index)">
+          <ion-icon name="add"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" (click)="removeItem(index)">
+          <ion-icon name="close"></ion-icon>
+        </ion-button>
       </div>
     </div>
 
-
-    <ion-button  expand="block" fill="clear">
-      <ion-icon class="add-item-icon" slot="icon-only" name="add-circle" ></ion-icon>
+    <ion-button expand="block" fill="clear" (click)="openMenu()">
+      <ion-icon
+        class="add-item-icon"
+        slot="icon-only"
+        name="add-circle"
+      ></ion-icon>
     </ion-button>
 
-  <ion-button class="check-button" expand="block" fill="clear" >
-    Check
-  </ion-button>
-
+    <ion-button class="check-button" expand="block" fill="clear">
+      Check
+    </ion-button>
   </ion-card>
 </ion-content>
