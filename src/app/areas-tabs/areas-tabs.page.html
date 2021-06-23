@@ -1,8 +1,8 @@
-<ion-tabs>
+<!-- <ion-tabs>
 
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="hall-tab" >
-      <ion-icon name="home-outline" ></ion-icon>
+    <ion-tab-button tab="hall-tab">
+      <ion-icon name="home-outline"></ion-icon>
       <ion-label>Hall</ion-label>
     </ion-tab-button>
 
@@ -17,4 +17,44 @@
     </ion-tab-button>
   </ion-tab-bar>
 
-</ion-tabs>
+</ion-tabs> -->
+
+<super-tabs>
+
+  <super-tabs-toolbar slot="bottom" color="primary">
+    <super-tab-button tab="hall-tab">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Hall</ion-label>
+    </super-tab-button>
+
+    <super-tab-button tab="terrace-tab">
+      <ion-icon name="cafe-outline"></ion-icon>
+      <ion-label>Terrace</ion-label>
+    </super-tab-button>
+
+    <super-tab-button tab="garden-tab">
+      <ion-icon name="leaf-outline"></ion-icon>
+      <ion-label>Garden</ion-label>
+    </super-tab-button>
+  </super-tabs-toolbar>
+
+  <super-tabs-container>
+    <super-tab>
+      <ion-content>
+        <ion-nav [root]="hallTabPage" #hallNav></ion-nav>
+      </ion-content>
+    </super-tab>
+    <super-tab>
+      <ion-content>
+        <ion-nav [root]="terraceTabPage"></ion-nav>
+      </ion-content>
+    </super-tab>
+    <super-tab>
+      <ion-content>
+        <ion-nav [root]="gardenTabPage"></ion-nav>
+      </ion-content>
+    </super-tab>
+
+  </super-tabs-container>
+
+</super-tabs>
