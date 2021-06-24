@@ -7,7 +7,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginPage } from './login/login.page';
+import { LoginPage } from './auth/login/login.page';
 import { SuperTabsModule } from '@ionic-super-tabs/angular';
 
 

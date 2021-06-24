@@ -19,7 +19,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     SharedModule
 
   ],
-  declarations: [HallTabPage]
+  declarations: [HallTabPage],
+  entryComponents: [HallTabPage]
 
 })
 export class HallTabPageModule { }

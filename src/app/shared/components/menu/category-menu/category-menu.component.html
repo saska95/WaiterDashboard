@@ -2,11 +2,7 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button (click)="dismiss()">
-        <ion-icon
-          slot="icon-only"
-          ios="chevron-back-outline"
-          md="arrow-back"
-        ></ion-icon>
+        <ion-icon slot="icon-only" ios="chevron-back-outline" md="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title>{{ item.label }} Menu</ion-title>
@@ -17,28 +13,21 @@
   <div class="quantity">
     <ion-item>
       <ion-label>Quantity:</ion-label>
-      <ion-input
-        type="number"
-        [value]="quantity"
-        (input)="setQuantity($event)"
-      ></ion-input>
-      <ion-button (click)="add()"
-        >Add<ion-icon name="add"></ion-icon
-      ></ion-button>
+      <ion-input type="number" [value]="quantity" (input)="setQuantity($event)"></ion-input>
+      <ion-button (click)="add()">Add<ion-icon name="add"></ion-icon>
+      </ion-button>
     </ion-item>
   </div>
+
+
   <div class="table">
     <div class="item-header-holder">
       <span>Title</span>
       <span>Price</span>
     </div>
 
-    <div
-      class="item"
-      *ngFor="let item of products; let index = index"
-      (click)="selectItem(index)"
-      [ngClass]="selectedIndex === index && 'selected'"
-    >
+    <div class="item" *ngFor="let item of products; let index = index" (click)="selectItem(index)"
+      [ngClass]="selectedIndex === index && 'selected'">
       <div class="item-title">{{ item.name }}</div>
       <div class="item-price">{{ item.price }}</div>
     </div>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { LoginPage } from './login/login.page';
+import { AuthGuard } from './auth/auth.guard';
+import { LoginPage } from './auth/login/login.page';
 
 const routes: Routes = [
   {
@@ -13,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'areas-tabs',
-    loadChildren: () => import('./areas-tabs/areas-tabs.module').then(m => m.AreasTabsPageModule)
+    loadChildren: () => import('./areas-tabs/areas-tabs.module').then(m => m.AreasTabsPageModule),
+    canLoad: [AuthGuard]
   }
 ];
 @NgModule({
@@ -22,4 +24,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

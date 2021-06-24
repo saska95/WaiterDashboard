@@ -13,23 +13,53 @@ export class MenuComponent implements OnInit {
   thisModal: any;
   products = [
     {
-      name: 'Coca-Cola',
-      price: 150,
+      name: 'Coca Cola',
+      price: 160,
+      category: ProductCategory.SOFT_DRINKS,
+    },
+    {
+      name: 'Coca Cola Zero',
+      price: 160,
+      category: ProductCategory.SOFT_DRINKS,
+    },
+    {
+      name: 'Schweppes Tonic',
+      price: 160,
+      category: ProductCategory.SOFT_DRINKS,
+    },
+    {
+      name: 'Schweppes Bitter',
+      price: 160,
       category: ProductCategory.SOFT_DRINKS,
     },
     {
       name: 'Fanta',
-      price: 130,
-      category: ProductCategory.SOFT_DRINKS,
-    },
-    {
-      name: 'Juice',
-      price: 250,
+      price: 160,
       category: ProductCategory.SOFT_DRINKS,
     },
     {
       name: 'Sprite',
-      price: 130,
+      price: 160,
+      category: ProductCategory.SOFT_DRINKS,
+    },
+    {
+      name: 'Juice',
+      price: 140,
+      category: ProductCategory.SOFT_DRINKS,
+    },
+    {
+      name: 'IceTea',
+      price: 140,
+      category: ProductCategory.SOFT_DRINKS,
+    },
+    {
+      name: 'Apple juice',
+      price: 140,
+      category: ProductCategory.SOFT_DRINKS,
+    },
+    {
+      name: 'Lemonade',
+      price: 240,
       category: ProductCategory.SOFT_DRINKS,
     },
     {
@@ -53,12 +83,82 @@ export class MenuComponent implements OnInit {
       category: ProductCategory.BEERS,
     },
     {
+      name: 'Becks',
+      price: 150,
+      category: ProductCategory.BEERS,
+    },
+    {
+      name: 'Corona',
+      price: 130,
+      category: ProductCategory.BEERS,
+    },
+    {
+      name: 'Stella Artois',
+      price: 250,
+      category: ProductCategory.BEERS,
+    },
+    {
+      name: 'Hoegaarden',
+      price: 130,
+      category: ProductCategory.BEERS,
+    },
+    {
+      name: 'Bavaria',
+      price: 250,
+      category: ProductCategory.BEERS,
+    },
+    {
+      name: 'Krusovice',
+      price: 130,
+      category: ProductCategory.BEERS,
+    },
+    {
       name: 'White Lady',
       price: 150,
       category: ProductCategory.COCTAILS,
     },
     {
       name: 'El Diablo',
+      price: 130,
+      category: ProductCategory.COCTAILS,
+    },
+    {
+      name: 'Blue Frog',
+      price: 150,
+      category: ProductCategory.COCTAILS,
+    },
+    {
+      name: 'Red Frog',
+      price: 130,
+      category: ProductCategory.COCTAILS,
+    },
+    {
+      name: 'Tequila Sunrise',
+      price: 150,
+      category: ProductCategory.COCTAILS,
+    },
+    {
+      name: 'Cuba Libre',
+      price: 130,
+      category: ProductCategory.COCTAILS,
+    },
+    {
+      name: 'Long Island',
+      price: 150,
+      category: ProductCategory.COCTAILS,
+    },
+    {
+      name: 'Mojito',
+      price: 130,
+      category: ProductCategory.COCTAILS,
+    },
+    {
+      name: 'Cosmopolitan',
+      price: 150,
+      category: ProductCategory.COCTAILS,
+    },
+    {
+      name: 'Blue lagoon',
       price: 130,
       category: ProductCategory.COCTAILS,
     },
@@ -79,7 +179,26 @@ export class MenuComponent implements OnInit {
       category: ProductCategory.SPIRITS,
     },
     {
-      name: 'Vodka',
+      name: 'Smirnof vodka',
+      price: 130,
+      category: ProductCategory.SPIRITS,
+    }, {
+      name: 'Jonnie Walker',
+      price: 150,
+      category: ProductCategory.SPIRITS,
+    },
+    {
+      name: 'Tequila',
+      price: 130,
+      category: ProductCategory.SPIRITS,
+    },
+    {
+      name: 'Martini',
+      price: 150,
+      category: ProductCategory.SPIRITS,
+    },
+    {
+      name: 'Campari',
       price: 130,
       category: ProductCategory.SPIRITS,
     },
@@ -89,23 +208,116 @@ export class MenuComponent implements OnInit {
       category: ProductCategory.HOT_DRINKS,
     },
     {
+      name: 'Jegermeister',
+      price: 150,
+      category: ProductCategory.SPIRITS,
+    },
+    {
+      name: 'Chivas regal',
+      price: 130,
+      category: ProductCategory.SPIRITS,
+    },
+    {
+      name: 'Esspreso',
+      price: 130,
+      category: ProductCategory.HOT_DRINKS,
+    },
+    {
+      name: 'Americano',
+      price: 130,
+      category: ProductCategory.HOT_DRINKS,
+    },
+    {
+      name: 'Cappuccino',
+      price: 130,
+      category: ProductCategory.HOT_DRINKS,
+    },
+    {
+      name: 'Latte',
+      price: 130,
+      category: ProductCategory.HOT_DRINKS,
+    },
+    {
+      name: 'Cafe Mocha',
+      price: 130,
+      category: ProductCategory.HOT_DRINKS,
+    },
+    {
+      name: 'Macchiato',
+      price: 130,
+      category: ProductCategory.HOT_DRINKS,
+    },
+    {
+      name: 'Hot Chocolate',
+      price: 130,
+      category: ProductCategory.HOT_DRINKS,
+    },
+    {
+      name: 'Irish coffee',
+      price: 130,
+      category: ProductCategory.HOT_DRINKS,
+    },
+    {
+      name: 'Monin Ice coffee',
+      price: 130,
+      category: ProductCategory.HOT_DRINKS,
+    },
+    {
       name: 'Tea',
       price: 130,
       category: ProductCategory.HOT_DRINKS,
     },
     {
       name: 'Vranac',
-      price: 150,
+      price: 290,
       category: ProductCategory.WINE,
     },
     {
-      name: 'Medvedja krv',
+      name: 'Rose',
+      price: 290,
+      category: ProductCategory.WINE,
+    },
+    {
+      name: 'Sangria',
+      price: 250,
+      category: ProductCategory.WINE,
+    },
+    {
+      name: 'Cabernet',
+      price: 130,
+      category: ProductCategory.WINE,
+    }, {
+      name: 'Merlot',
+      price: 540,
+      category: ProductCategory.WINE,
+    },
+    {
+      name: 'Dom Perignon',
+      price: 540,
+      category: ProductCategory.WINE,
+    },
+    {
+      name: 'Prosseco',
+      price: 310,
+      category: ProductCategory.WINE,
+    },
+    {
+      name: 'Sauvignon',
       price: 130,
       category: ProductCategory.WINE,
     },
+    {
+      name: 'Chardonnay',
+      price: 130,
+      category: ProductCategory.WINE,
+    }, {
+      name: 'Pinot Grigio',
+      price: 130,
+      category: ProductCategory.WINE,
+    }
   ];
 
-  constructor(private modalController: ModalController) {}
+  constructor(private modalController: ModalController) { }
 
   ngOnInit() {
     this.thisModal = this.modalController.getTop();
@@ -115,8 +327,8 @@ export class MenuComponent implements OnInit {
     });
   }
 
-  titleCase(string: string) {
-    return string.charAt(0).toUpperCase() + string.substr(1).toLowerCase();
+  titleCase(text: string) {
+    return text.charAt(0).toUpperCase() + text.substr(1).toLowerCase();
   }
 
   dismiss() {

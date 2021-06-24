@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { AreasTabsPageRoutingModule } from './areas-tabs-routing.module';
 import { AreasTabsPage } from './areas-tabs.page';
 import { SuperTabsModule } from '@ionic-super-tabs/angular';
+import { HallTabPageModule } from './hall-tab/hall-tab.module';
+import { GardenTabPageModule } from './garden-tab/garden-tab.module';
+import { TerraceTabPageModule } from './terrace-tab/terrace-tab.module';
 
 @NgModule({
   imports: [
@@ -12,7 +15,10 @@ import { SuperTabsModule } from '@ionic-super-tabs/angular';
     CommonModule,
     FormsModule,
     AreasTabsPageRoutingModule,
-    SuperTabsModule
+    SuperTabsModule,
+    HallTabPageModule,
+    GardenTabPageModule,
+    TerraceTabPageModule
 
   ],
   declarations: [AreasTabsPage]

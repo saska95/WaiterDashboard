@@ -16,7 +16,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     TerraceTabPageRoutingModule,
     SharedModule
   ],
-  declarations: [TerraceTabPage]
+  declarations: [TerraceTabPage],
+  entryComponents: [TerraceTabPage]
 
 })
 export class TerraceTabPageModule { }

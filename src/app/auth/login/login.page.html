@@ -11,10 +11,11 @@
             </ion-card-header>
             <ion-card-content>
               <ion-item>
-                <ion-label position="floating">Username:</ion-label>
-                <ion-input formControlName="username" type="text" placeholder="Enter username..."></ion-input>
+                <ion-label position="floating">Email:</ion-label>
+                <ion-input formControlName="email" type="email" placeholder="Enter email...">
+                </ion-input>
               </ion-item>
-              <p *ngIf="!isUsernameValid">Username is required field!</p>
+              <p *ngIf="!isEmailValid">Email is required field!</p>
               <ion-item>
                 <ion-label position="floating"> Password:</ion-label>
                 <ion-input formControlName="password" type="password" placeholder="Enter password..."></ion-input>
@@ -26,7 +27,7 @@
       </ion-row>
     </ion-grid>
 
-    <ion-button class="login-button" type="submit" fill="clear">
+    <ion-button class="login-button" type="submit" fill="clear" (click)="onLogin()">
       Login
     </ion-button>
   </form>

@@ -15,7 +15,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     GardenTabPageRoutingModule,
     SharedModule
   ],
-  declarations: [GardenTabPage]
+  declarations: [GardenTabPage],
+  entryComponents: [GardenTabPage]
 
 })
 export class GardenTabPageModule { }
