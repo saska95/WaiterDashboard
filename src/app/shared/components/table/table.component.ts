@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { element } from 'protractor';
+import { Table } from '../../models/Table';
 import { TableDetailsComponent } from '../table-details/table-details.component';
 
 @Component({
@@ -10,10 +13,12 @@ import { TableDetailsComponent } from '../table-details/table-details.component'
 export class TableComponent implements OnInit {
 
   @Input() size: number;
+  @Input() id: number;
 
   numbers: number[];
+  tableObject: any;
 
-  constructor(public modalController: ModalController) {
+  constructor(public modalController: ModalController, private http: HttpClient) {
 
 
    }
@@ -29,6 +34,16 @@ export class TableComponent implements OnInit {
   }
 
   async openTableDetails(){
+    //zahtev za detalje o stolu i onda njih stampam
+    //get
+    this.tableObject= this.http.get<any>('https://waiterdashboard-default-rtdb.europe-west1.firebasedatabase.app/database/3/table.json').subscribe(
+      response =>{
+        this.tableObject=response;
+        console.log(this.tableObject,"EVO DETALJA O STOLU NA KLIK STOLA");
+      }
+    );
+
+
     const modal = await this.modalController.create({
       component: TableDetailsComponent
     });
