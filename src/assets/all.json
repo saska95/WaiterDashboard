@@ -1,0 +1,637 @@
+{
+  "database":[
+                {
+                  "waiter":[
+                    {
+                    "id":1,
+                    "firstName": "Saska",
+                    "lastname": "Radovic",
+                    "email": "saskafon@gmail.com",
+                    "password": "saska123"
+                    },
+                    {
+                      "id":2,
+                      "firstName": "Nikola",
+                      "lastname": "Veselinovic",
+                      "email": "nikolaveselinovic388@gmail.com",
+                      "password": "nikola123"
+                    },
+                    {
+                      "id":3,
+                      "firstName": "Suzana",
+                      "lastname": "Radovic",
+                      "email": "suzanarad14@gmail.com",
+                      "password": "suzana123"
+                      }
+                           ]
+                },
+                {
+                  "area":[
+                    {
+                    "id":1,
+                    "name": "Hall"
+                    },
+                    {
+                      "id":2,
+                      "name": "Garden"
+                    },
+                    {
+                    "id":3,
+                    "name": "Terrace"
+                    }
+                          ]
+                },
+                {
+                  "product":[
+                    {
+                      "id":1,
+                      "name": "Coca Cola",
+                      "price": 100,
+                      "category":"SOFT_DRINKS"
+                    },
+                    {
+                      "id":2,
+                      "name": "Coca Cola Zero",
+                      "price": 100,
+                      "category":"SOFT_DRINKS"
+                    },
+                    {
+                      "id":3,
+                      "name": "Schweppes Tonic",
+                      "price": 100,
+                      "category":"SOFT_DRINKS"
+                    },
+                    {
+                      "id":4,
+                      "name": "Schweppes Bitter",
+                      "price": 100,
+                      "category":"SOFT_DRINKS"
+                    },
+                    {
+                      "id":5,
+                      "name": "Fanta",
+                      "price": 100,
+                      "category":"SOFT_DRINKS"
+                    },
+                    {
+                      "id":6,
+                      "name": "Sprite",
+                      "price": 100,
+                      "category":"SOFT_DRINKS"
+                    },
+                    {
+                      "id":7,
+                      "name": "Juice",
+                      "price": 100,
+                      "category":"SOFT_DRINKS"
+                    },
+                    {
+                      "id":8,
+                      "name": "IceTea",
+                      "price": 100,
+                      "category":"SOFT_DRINKS"
+                    },
+                    {
+                      "id":9,
+                      "name": "Apple juice",
+                      "price": 100,
+                      "category":"SOFT_DRINKS"
+                    },
+                    {
+                      "id":10,
+                      "name": "Lemonade",
+                      "price": 100,
+                      "category":"SOFT_DRINKS"
+                    },
+                    {
+                      "id":11,
+                      "name": "Jelen",
+                      "price": 200,
+                      "category":"BEERS"
+                    },
+                    {
+                      "id":12,
+                      "name": "Lav",
+                      "price": 200,
+                      "category":"BEERS"
+                    },
+                    {
+                      "id":13,
+                      "name": "Staropramen",
+                      "price": 200,
+                      "category":"BEERS"
+                   },
+                   {
+                      "id":14,
+                      "name": "Nektar",
+                      "price": 200,
+                      "category":"BEERS"
+                   },
+                   {
+                      "id":15,
+                      "name": "Becks",
+                      "price": 200,
+                      "category":"BEERS"
+                   },
+                   {
+                      "id":16,
+                      "name": "Corona",
+                      "price": 200,
+                      "category":"BEERS"
+                   },
+                   {
+                      "id":17,
+                      "name": "Stella Artois",
+                      "price": 200,
+                      "category":"BEERS"
+                   },
+                   {
+                      "id":18,
+                      "name": "Hoegaarden",
+                      "price": 200,
+                      "category":"BEERS"
+                   },
+                   {
+                      "id":19,
+                      "name": "Bavaria",
+                      "price": 200,
+                      "category":"BEERS"
+                   },
+                   {
+                      "id":20,
+                      "name": "Krusovice",
+                      "price": 200,
+                      "category":"BEERS"
+                    },
+                    {
+                      "id":21,
+                      "name": "El Diablo",
+                      "price": 350,
+                      "category":"COCTAILS"
+                    },
+                    {
+                      "id":22,
+                      "name": "Blue Frog",
+                      "price": 350,
+                      "category":"COCTAILS"
+                    },
+                    {
+                      "id":23,
+                      "name": "Red Frog",
+                      "price": 350,
+                      "category":"COCTAILS"
+                    },
+                    {
+                      "id":24,
+                      "name": "Tequila Sunrise",
+                      "price": 350,
+                      "category":"COCTAILS"
+                    },
+                    {
+                      "id":25,
+                      "name": "Cuba Libre",
+                      "price": 350,
+                      "category":"COCTAILS"
+                    },
+                    {
+                      "id":26,
+                      "name": "Long Island",
+                      "price": 350,
+                      "category":"COCTAILS"
+                    },
+                    {
+                      "id":27,
+                      "name": "Mojito",
+                      "price": 350,
+                      "category":"COCTAILS"
+                    },
+                    {
+                      "id":28,
+                      "name": "Cosmopolitan",
+                      "price": 350,
+                      "category":"COCTAILS"
+                    },
+                    {
+                      "id":29,
+                      "name": "Blue lagoon",
+                      "price": 350,
+                      "category":"COCTAILS"
+                    },
+                    {
+                      "id":30,
+                      "name": "White Lady",
+                      "price": 350,
+                      "category":"COCTAILS"
+                    },
+                    {
+                      "id":31,
+                      "name": "Gin",
+                      "price": 360,
+                      "category": "SPIRITS"
+                    },
+                    {
+                      "id":32,
+                      "name": "Balantines",
+                      "price": 360,
+                      "category": "SPIRITS"
+                    },
+                    {
+                      "id":33,
+                      "name": "Smirnof vodka",
+                      "price": 360,
+                      "category": "SPIRITS"
+                    },
+                    {
+                      "id":34,
+                      "name": "Jonnie Walker",
+                      "price": 360,
+                      "category": "SPIRITS"
+                    },
+                    {
+                      "id":35,
+                      "name": "Tequila",
+                      "price": 360,
+                      "category": "SPIRITS"
+                    },
+                    {
+                      "id":36,
+                      "name": "Martini",
+                      "price": 360,
+                      "category": "SPIRITS"
+                    },
+                    {
+                      "id":37,
+                      "name": "Campari",
+                      "price": 360,
+                      "category": "SPIRITS"
+                    },
+                    {
+                      "id":38,
+                      "name": "Baileys",
+                      "price": 360,
+                      "category": "SPIRITS"
+                    },
+                    {
+                      "id":39,
+                      "name": "Jegermeister",
+                      "price": 360,
+                      "category": "SPIRITS"
+                    },
+                    {
+                      "id":40,
+                      "name": "Chivas regal",
+                      "price": 360,
+                      "category": "SPIRITS"
+                    },
+                    {
+                      "id":41,
+                      "name": "Esspreso",
+                      "price": 150,
+                      "category": "HOT_DRINKS"
+                    },
+                    {
+                      "id":42,
+                      "name": "Americano",
+                      "price": 150,
+                      "category": "HOT_DRINKS"
+                    },
+                    {
+                      "id":43,
+                      "name": "Cappuccino",
+                      "price": 150,
+                      "category": "HOT_DRINKS"
+                    },
+                    {
+                      "id":44,
+                      "name": "Latte",
+                      "price": 150,
+                      "category": "HOT_DRINKS"
+                    },
+                    {
+                      "id":45,
+                      "name": "Cafe Mocha",
+                      "price": 150,
+                      "category": "HOT_DRINKS"
+                    },
+                    {
+                      "id":46,
+                      "name": "Macchiato",
+                      "price": 150,
+                      "category": "HOT_DRINKS"
+                    },
+                    {
+                      "id":47,
+                      "name": "Hot Chocolate",
+                      "price": 150,
+                      "category": "HOT_DRINKS"
+                    },
+                    {
+                      "id":48,
+                      "name": "Irish coffee",
+                      "price": 150,
+                      "category": "HOT_DRINKS"
+                    },
+                    {
+                      "id":49,
+                      "name": "Monin Ice coffee",
+                      "price": 150,
+                      "category": "HOT_DRINKS"
+                    },
+                    {
+                      "id":50,
+                      "name": "Tea",
+                      "price": 150,
+                      "category": "HOT_DRINKS"
+                    },
+                    {
+                      "id":51,
+                      "name": "Vranac",
+                      "price": 250,
+                      "category": "WINE"
+                    },
+                    {
+                      "id":52,
+                      "name": "Rose",
+                      "price": 250,
+                      "category": "WINE"
+                    },
+                    {
+                      "id":53,
+                      "name": "Sangria",
+                      "price": 250,
+                      "category": "WINE"
+                    },
+                    {
+                      "id":54,
+                      "name": "Cabernet",
+                      "price": 250,
+                      "category": "WINE"
+                    },
+                    {
+                      "id":55,
+                      "name": "Merlot",
+                      "price": 250,
+                      "category": "WINE"
+                    },
+                    {
+                      "id":56,
+                      "name": "Dom Perignon",
+                      "price": 250,
+                      "category": "WINE"
+                    },
+                    {
+                      "id":57,
+                      "name": "Prosseco",
+                      "price": 250,
+                      "category": "WINE"
+                    },
+                    {
+                      "id":58,
+                      "name": "Sauvignon",
+                      "price": 250,
+                      "category": "WINE"
+                    },
+                    {
+                      "id":59,
+                      "name": "Chardonnay",
+                      "price": 250,
+                      "category": "WINE"
+                    },
+                    {
+                      "id":60,
+                      "name": "Pinot Grigio",
+                      "price": 250,
+                      "category": "WINE"
+                    }
+                             ]
+                },
+                {
+                  "table":[
+                    {
+                      "id": 1,
+                      "position": 1,
+                      "size": 4,
+                      "activeOrderId": -1,
+                      "idArea": 1
+                    },
+                    {
+                      "id": 2,
+                      "position": 2,
+                      "size": 4,
+                      "activeOrderId": -1,
+                      "idArea": 1
+                    },
+                    {
+                      "id": 3,
+                      "position": 3,
+                      "size": 4,
+                      "activeOrderId": -1,
+                      "idArea": 1
+                    },
+                    {
+                      "id": 4,
+                      "position": 4,
+                      "size": 3,
+                      "activeOrderId": -1,
+                      "idArea": 1
+                    },
+                    {
+                      "id": 5,
+                      "position": 5,
+                      "size": 4,
+                      "activeOrderId": -1,
+                      "idArea": 1
+                    },
+                    {
+                      "id": 6,
+                      "position": 6,
+                      "size": 2,
+                      "activeOrderId": -1,
+                      "idArea": 1
+                    },
+                    {
+                      "id":7,
+                      "position": 7,
+                      "size": 2,
+                      "activeOrderId": -1,
+                      "idArea": 1
+                    },
+                    {
+                      "id": 8,
+                      "position": 8,
+                      "size": 3,
+                      "activeOrderId": -1,
+                      "idArea": 1
+                    },
+                    {
+                      "id":9,
+                      "position": 9,
+                      "size": 3,
+                      "activeOrderId": -1,
+                      "idArea": 1
+                    },
+                    {
+                      "id":10,
+                      "position": 10,
+                      "size": 3,
+                      "activeOrderId": -1,
+                      "idArea": 1
+                    },
+                    {
+                      "id":11,
+                      "position": 11,
+                      "size": 4,
+                      "activeOrderId": -1,
+                      "idArea": 2
+                    },
+                    {
+                      "id":12,
+                      "position": 12,
+                      "size": 2,
+                      "activeOrderId": -1,
+                      "idArea": 2
+                    },
+                    {
+                      "id":13,
+                      "position": 13,
+                      "size": 4,
+                      "activeOrderId": -1,
+                      "idArea": 2
+                    },
+                    {
+                      "id":14,
+                      "position": 14,
+                      "size": 3,
+                      "activeOrderId": -1,
+                      "idArea": 2
+                    },
+                    {
+                      "id":15,
+                      "position": 15,
+                      "size": 3,
+                      "activeOrderId": -1,
+                      "idArea": 2
+                    },
+                    {
+                      "id":16,
+                      "position": 16,
+                      "size": 2,
+                      "activeOrderId": -1,
+                      "idArea": 2
+                      },
+                      {
+                        "id":17,
+                        "position": 17,
+                        "size": 3,
+                        "activeOrderId": -1,
+                        "idArea": 2
+                      },
+                      {
+                        "id":18,
+                        "position": 18,
+                        "size": 4,
+                        "activeOrderId": -1,
+                        "idArea": 2
+                      },
+                      {
+                        "id":19,
+                        "position": 19,
+                        "size": 3,
+                        "activeOrderId": -1,
+                        "idArea": 2
+                      },
+                      {
+                        "id":20,
+                        "position": 20,
+                        "size": 4,
+                        "activeOrderId": -1,
+                        "idArea": 2
+                      },
+                      {
+                        "id":21,
+                        "position": 21,
+                        "size": 2,
+                        "activeOrderId": -1,
+                        "idArea": 2
+                      },
+                      {
+                        "id":22,
+                        "position": 22,
+                        "size": 4,
+                        "activeOrderId": -1,
+                        "idArea": 3
+                      },
+                      {
+                        "id":23,
+                        "position": 23,
+                        "size": 2,
+                        "activeOrderId": -1,
+                        "idArea": 3
+                      },
+                      {
+                        "id":24,
+                        "position": 24,
+                        "size": 4,
+                        "activeOrderId": -1,
+                        "idArea": 3
+                      },
+                      {
+                        "id":25,
+                        "position": 25,
+                        "size": 3,
+                        "activeOrderId": -1,
+                        "idArea": 3
+                      },
+                      {
+                        "id":26,
+                        "position": 26,
+                        "size": 3,
+                        "activeOrderId": -1,
+                        "idArea": 3
+                      },
+                      {
+                        "id":27,
+                        "position": 27,
+                        "size": 4,
+                        "activeOrderId": -1,
+                        "idArea": 3
+                      },
+                      {
+                        "id":28,
+                        "position": 28,
+                        "size": 3,
+                        "activeOrderId": -1,
+                        "idArea": 3
+                      },
+                      {
+                        "id":29,
+                        "position": 29,
+                        "size": 3,
+                        "activeOrderId": -1,
+                        "idArea": 3
+                      },
+                      {
+                        "id":30,
+                        "position": 30,
+                        "size": 4,
+                        "activeOrderId": -1,
+                        "idArea": 3
+                      },
+                      {
+                        "id":31,
+                        "position": 31,
+                        "size": 2,
+                        "activeOrderId": -1,
+                        "idArea": 3
+                      },
+                      {
+                        "id":32,
+                        "position": 32,
+                        "size": 4,
+                        "activeOrderId": -1,
+                        "idArea": 3
+                      }
+                                ]
+                }
+              ]
+}

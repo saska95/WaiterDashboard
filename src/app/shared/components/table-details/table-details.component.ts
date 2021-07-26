@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { finished } from 'node:stream';
+import { ApiService } from 'src/app/services/api.service';
+import { OrderStatus } from '../../enums/OrderStatus.enum';
+import { Order } from '../../models/Order';
 import { MenuComponent } from '../menu/menu.component';
 
 @Component({
@@ -8,26 +12,47 @@ import { MenuComponent } from '../menu/menu.component';
   styleUrls: ['./table-details.component.scss'],
 })
 export class TableDetailsComponent implements OnInit {
+  //GET
   public orderItemsArray = [
-    {
-      name: 'Coca-Cola',
-      quantity: 2,
-      price: 150,
-      amount: 300,
-    },
-    {
-      name: 'Fanta',
-      quantity: 3,
-      price: 130,
-      amount: 390,
-    },
+    // {
+    //   name: 'Coca-Cola',
+    //   quantity: 2,
+    //   price: 150,
+    //   amount: 300,
+    // },
+    // {
+    //   name: 'Fanta',
+    //   quantity: 3,
+    //   price: 130,
+    //   amount: 390,
+    // },
   ];
 
-  constructor(public modalController: ModalController) { }
+  public sum = 0;
 
-  ngOnInit() { }
+  constructor(
+    public modalController: ModalController,
+    private apiService: ApiService
+  ) {}
+
+  ngOnInit() {
+    // Ovde treba da citas iz baze orderItemsArrah
+    //  this.getAllOrders().subscribe(orders => this.orderItemsArray=orders); <- get
+  }
 
   dismiss() {
+    // const order: Order ={
+    //     id: 3,
+    //     status: OrderStatus.UNPAID ,
+    //     creatingTime: new Date,
+    //     finishingTime: null,
+    //     waiterId: 3,
+    //     tableId: 3
+    //   }
+
+    //   console.log(order,"ORDER NOVI");
+    //   this.apiService.saveOrder( JSON.stringify(order));
+
     this.modalController.dismiss();
   }
 
@@ -35,9 +60,11 @@ export class TableDetailsComponent implements OnInit {
     this.orderItemsArray[index].quantity++;
     this.orderItemsArray[index].amount =
       this.orderItemsArray[index].quantity * this.orderItemsArray[index].price;
+    this.sum += this.orderItemsArray[index].price;
   }
 
   decreaseQuantity(index) {
+    this.sum -= this.orderItemsArray[index].price;
     if (this.orderItemsArray[index].quantity === 1) {
       this.orderItemsArray.splice(index, 1);
       return;
@@ -48,6 +75,7 @@ export class TableDetailsComponent implements OnInit {
   }
 
   removeItem(index) {
+    this.sum -= this.orderItemsArray[index].amount;
     this.orderItemsArray.splice(index, 1);
   }
 
@@ -57,8 +85,11 @@ export class TableDetailsComponent implements OnInit {
       id: 'menu',
     });
     modal.onDidDismiss().then((data) => {
-      const res = data.data.res;
-      this.orderItemsArray.push(res);
+      const res = data.data?.res;
+      if (res) {
+        this.orderItemsArray.push(res);
+        this.sum += res.amount;
+      }
     });
     return await modal.present();
   }

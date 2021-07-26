@@ -1,7 +1,10 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { ApiService } from 'src/app/services/api.service';
+import { Waiter } from 'src/app/shared/models/Waiter';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -11,65 +14,58 @@ import { AuthService } from '../auth.service';
 })
 export class LoginPage implements OnInit {
   loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
   });
 
   isEmailValid = true;
   isPasswordValid = true;
+  user: Waiter = null;
+  constructor(
+    private router: Router,
+    private navCtrl: NavController,
+    private authService: AuthService,
+    private apiService: ApiService
+  ) {}
 
-  constructor(private router: Router, private navCtrl: NavController, private authService: AuthService) { }
-
-  ngOnInit() { }
+  ngOnInit() {}
 
   redirectToLogin() {
     this.navCtrl.navigateRoot(`/areas-tabs`);
   }
 
   login() {
-    console.log('radi');
-    console.log('Email:' + this.loginForm.get('email').value);
-    console.log('Password:' + this.loginForm.get('password').value);
-    if (!this.loginForm.valid) {
-      if (this.loginForm.get('email').valid) {
-        this.isEmailValid = true;
-      } else {
-        this.isEmailValid = false;
+    //Ovde sa inputa povlcacis vrednosti
+    this.user = {
+      email: this.loginForm.get('email').value,
+      password: this.loginForm.get('password').value,
+    };
+
+    //Poziva firebase da porveri da li ima korisnika
+    this.authService.logIn(this.user).subscribe(
+      (data) => {
+        this.router.navigateByUrl('/areas-tabs');
+        // this.redirectToLogin();
+      },
+      (error) => {
+        console.log('Hello here is error', error);
+        this.authService.isUserAuthenticated = false;
       }
+    );
 
-      if (this.loginForm.get('password').valid) {
-        this.isPasswordValid = true;
-      } else {
-        this.isPasswordValid = false;
-      }
-      return;
-    }
+    //send and write data in realtime database
+    // this.apiService.sendData(null).subscribe(data => console.log(data,"PRvi put?")
+    // )
 
-    this.redirectToLogin();
-  }
+    //get data fomr reltiem dtabase
+    // this.apiService.getData('waiter').subscribe(data => console.log(data,"dobila sam podatke")
+    // )
 
-  onLogin() {
-    this.authService.logIn();
+    // Test
+    this.authService.isUserAuthenticated = true;
     this.router.navigateByUrl('/areas-tabs');
   }
-
-  //SA VEZBI
-  // onLogin(loginForm: NgForm) {
-  //   console.log(loginForm);
-  //   if (loginForm.valid) {
-  //     this.authService.logIn(loginForm.value).subscribe(next: resData => {
-  //       console.log('prijava uspesna firebase');
-  //       console.log(resData);
-  //       this.router.navigateByUrl('/areas-tabs');
-  //     });
-  //   }
-
-  // onRegister() {
-  //   this.authService.register(this.loginForm.value)._subscribe(next: resData => {
-  //     console.log('uspela reg');
-
-  //   });
-
-  // }
 }
-

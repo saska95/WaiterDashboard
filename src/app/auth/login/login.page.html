@@ -15,19 +15,19 @@
                 <ion-input formControlName="email" type="email" placeholder="Enter email...">
                 </ion-input>
               </ion-item>
-              <p *ngIf="!isEmailValid">Email is required field!</p>
+              <p *ngIf="!loginForm.get('email').valid && loginForm.touched">Please enter valid email!</p>
               <ion-item>
                 <ion-label position="floating"> Password:</ion-label>
                 <ion-input formControlName="password" type="password" placeholder="Enter password..."></ion-input>
               </ion-item>
-              <p *ngIf="!isPasswordValid">Password is required field!</p>
+              <p *ngIf="!loginForm.get('password').valid && loginForm.touched">Password is required field!</p>
             </ion-card-content>
           </ion-card>
         </ion-col>
       </ion-row>
     </ion-grid>
 
-    <ion-button class="login-button" type="submit" fill="clear" (click)="onLogin()">
+    <ion-button class="login-button" type="submit" fill="clear">
       Login
     </ion-button>
   </form>

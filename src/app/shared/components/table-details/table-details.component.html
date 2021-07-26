@@ -23,7 +23,7 @@
     </div>
 
     <div class="item" *ngFor="let item of orderItemsArray; let index = index">
-      <div class="item-data">
+      <div class="item-data" *ngIf="item">
         <div class="item-title">{{ item.name }}</div>
         <div class="item-quantity">{{ item.quantity }}</div>
         <div class="item-price">{{ item.price }}</div>
@@ -49,6 +49,11 @@
         name="add-circle"
       ></ion-icon>
     </ion-button>
+
+    <div class="sum-holder">
+      <span>SUM = </span>
+      <div class="sum-price">{{ sum }}</div>
+    </div>
 
     <ion-button class="check-button" expand="block" fill="clear">
       Check

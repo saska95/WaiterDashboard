@@ -61,3 +61,20 @@ ion-icon {
   font-weight: bold;
   border-radius: 25px;
 }
+.sum-holder {
+  background-color: rgb(195, 243, 245);
+
+  color: rgb(28, 152, 156);
+
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
+
+  span {
+    text-align: end;
+  }
+  .sum-price {
+    background-color: rgb(255, 255, 255);
+    width: 34%;
+  }
+}

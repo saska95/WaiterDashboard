@@ -1,21 +1,29 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar >
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon
+          slot="icon-only"
+          md="power-outline"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title> Hall </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div class="parent">
-    <div class="cell div1"><app-table [size]="4"></app-table></div>
-    <div class="cell div2"><app-table [size]="4"></app-table></div>
-    <div class="cell div3"><app-table [size]="4"></app-table></div>
-    <div class="cell div4"><app-table [size]="3"></app-table></div>
-    <div class="cell div5"><app-table [size]="4"></app-table></div>
+    <div class="cell div1"><app-table [id]="1" [size]="4"></app-table></div>
+    <div class="cell div2"><app-table [id]="2" [size]="4"></app-table></div>
+    <div class="cell div3"><app-table [id]="3" [size]="4"></app-table></div>
+    <div class="cell div4"><app-table [id]="4" [size]="3"></app-table></div>
+    <div class="cell div5"><app-table [id]="5" [size]="4"></app-table></div>
     <div class="cell div6"></div>
-    <div class="cell div7"><app-table [size]="2"></app-table></div>
-    <div class="cell div8"><app-table [size]="2"></app-table></div>
-    <div class="cell div9"><app-table [size]="3"></app-table></div>
-    <div class="cell div10"><app-table [size]="3"></app-table></div>
-    <div class="cell div11"><app-table [size]="3"></app-table></div>
+    <div class="cell div7"><app-table [id]="6" [size]="2"></app-table></div>
+    <div class="cell div8"><app-table [id]="7" [size]="2"></app-table></div>
+    <div class="cell div9"><app-table [id]="8" [size]="3"></app-table></div>
+    <div class="cell div10"><app-table [id]="9" [size]="3"></app-table></div>
+    <div class="cell div11"><app-table [id]="10" [size]="3"></app-table></div>
   </div>
 </ion-content>

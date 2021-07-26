@@ -1,4 +1,8 @@
+
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
+import { AuthService } from 'src/app/auth/auth.service';
 
 
 @Component({
@@ -8,8 +12,13 @@ import { Component } from '@angular/core';
 })
 export class TerraceTabPage {
 
-  constructor() {}
+  constructor(private router: Router, private navCtrl: NavController, private authService: AuthService) {}
 
+  logout(){
+    this.authService.logOut();
+   // console.log("POZVAO IZ HALLA");
+    this.router.navigateByUrl('/login');
+  }
 
 
 }

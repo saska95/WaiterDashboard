@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { LoginPage } from './auth/login/login.page';
 import { SuperTabsModule } from '@ionic-super-tabs/angular';
 
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -17,7 +19,8 @@ import { SuperTabsModule } from '@ionic-super-tabs/angular';
 @NgModule({
   declarations: [AppComponent, LoginPage],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, ReactiveFormsModule, SuperTabsModule.forRoot()],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule,
+    HttpClientModule, ReactiveFormsModule, SuperTabsModule.forRoot()],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
