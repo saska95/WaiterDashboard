@@ -13,10 +13,11 @@ export class MenuComponent implements OnInit {
   productCategoryArray = [];
   thisModal: any;
 
-
-
   products = [];
-  constructor(private modalController: ModalController, private apiService: ApiService) { }
+  constructor(
+    private modalController: ModalController,
+    private apiService: ApiService
+  ) {}
 
   ngOnInit() {
     this.thisModal = this.modalController.getTop();
@@ -24,12 +25,9 @@ export class MenuComponent implements OnInit {
       const label = this.titleCase(item.replace('_', ' '));
       this.productCategoryArray.push({ label, category: item });
     });
-    this.apiService.getDrinks().subscribe(drinks => {
-      this.products=drinks;
-      console.log(drinks,"Radi ovo");
-    }
-
-      )
+    this.apiService.getDrinks().subscribe((drinks) => {
+      this.products = drinks;
+    });
   }
 
   titleCase(text: string) {
@@ -57,8 +55,6 @@ export class MenuComponent implements OnInit {
 
   getProductsForCategory(category) {
     return this.products.filter((item) => {
-      console.log(item.category,category, item.category === category);
-
       if (item.category === category) {
         return true;
       }

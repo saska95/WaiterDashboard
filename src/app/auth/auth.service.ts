@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Waiter } from '../shared/models/Waiter';
 import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs/operators';
-
+import { Router } from '@angular/router';
+import { Plugins } from '@capacitor/core';
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const { Storage } = Plugins;
 
 interface AuthResponseData {
   kind: string;
@@ -13,42 +15,46 @@ interface AuthResponseData {
   localId: string;
   expiresIn: string;
   registered?: boolean;
-};
+}
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  constructor(private http: HttpClient, private router: Router) {}
 
-  private userAuthenticated = false;
-  constructor(private http: HttpClient) {
+  async isUserAuthenticated() {
+    const ret = await Storage.get({ key: 'isAuthenticated' });
+    return Boolean(ret.value);
   }
-
-
-  get isUserAuthenticated(): boolean {
-    return this.userAuthenticated;
-  }
-
-  set isUserAuthenticated(value: boolean) {
-    this.userAuthenticated = true;
-  }
-
 
   logIn(waiter: Waiter) {
-    this.userAuthenticated = true;
-    return this.http.post<AuthResponseData>
-      (`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.firebaseAPIKey}`,
-        { email: waiter.email, password: waiter.password }).pipe(
-          tap(() => { this.userAuthenticated = true })
+    return new Promise((resolve, reject) => {
+      this.http
+        .post<AuthResponseData>(
+          `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.firebaseAPIKey}`,
+          { email: waiter.email, password: waiter.password }
+        )
+        .subscribe(
+          async (res) => {
+            await Storage.set({
+              key: 'isAuthenticated',
+              value: JSON.stringify(true),
+            });
+            this.router.navigateByUrl('/areas-tabs');
+            resolve(res);
+          },
+          (err) => {
+            reject(err);
+          }
         );
+    });
   }
 
-
-  logOut() {
-    this.userAuthenticated = false;
-    //console.log("POZVAO IZ AUTHA");
+  async logOut() {
+    await Storage.set({
+      key: 'isAuthenticated',
+      value: JSON.stringify(false),
+    });
   }
-
-
-
 }

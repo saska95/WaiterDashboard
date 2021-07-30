@@ -1,7 +1,9 @@
-
-
-<div [ngClass]="'table-holder size'+ size" (click)="openTableDetails(this.id)">
+<div
+  [ngClass]="
+    'table-holder size' + size + (activeOrderId !== -1 ? ' occupied' : '')
+  "
+  (click)="openTableDetails(this.id)"
+>
   <div class="chair" *ngFor="let item of numbers"></div>
   <div class="table"></div>
 </div>
-

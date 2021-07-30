@@ -1,11 +1,8 @@
 <ion-header [translucent]="true">
-  <ion-toolbar >
+  <ion-toolbar>
     <ion-buttons slot="end">
       <ion-button (click)="logout()">
-        <ion-icon
-          slot="icon-only"
-          md="power-outline"
-        ></ion-icon>
+        <ion-icon slot="icon-only" md="power-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title> Hall </ion-title>
@@ -14,7 +11,16 @@
 
 <ion-content [fullscreen]="true">
   <div class="parent">
-    <div class="cell div1"><app-table [id]="1" [size]="4"></app-table></div>
+    <div [ngClass]="'cell div'+item.position" *ngFor="let item of hallTables">
+      <app-table
+        [activeOrderId]="item.activeOrderId"
+        [id]="item.id"
+        [size]="item.size"
+        (reload)="reload()"
+      ></app-table>
+    </div>
+
+    <!-- <div class="cell div1"><app-table [id]="1" [size]="4"></app-table></div>
     <div class="cell div2"><app-table [id]="2" [size]="4"></app-table></div>
     <div class="cell div3"><app-table [id]="3" [size]="4"></app-table></div>
     <div class="cell div4"><app-table [id]="4" [size]="3"></app-table></div>
@@ -24,6 +30,6 @@
     <div class="cell div8"><app-table [id]="7" [size]="2"></app-table></div>
     <div class="cell div9"><app-table [id]="8" [size]="3"></app-table></div>
     <div class="cell div10"><app-table [id]="9" [size]="3"></app-table></div>
-    <div class="cell div11"><app-table [id]="10" [size]="3"></app-table></div>
+    <div class="cell div11"><app-table [id]="10" [size]="3"></app-table></div> -->
   </div>
 </ion-content>

@@ -1,29 +1,33 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
-import { TableComponent } from 'src/app/shared/components/table/table.component';
-
-
+import { Utility } from 'src/app/services/utility';
+import { Table } from 'src/app/shared/models/Table';
 
 @Component({
   selector: 'app-hall-tab',
   templateUrl: 'hall-tab.page.html',
-  styleUrls: ['hall-tab.page.scss']
-
+  styleUrls: ['hall-tab.page.scss'],
 })
 export class HallTabPage {
+  hallTables: Table[];
 
-  @Input() table: TableComponent;
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private utility: Utility
+  ) {}
 
-  constructor(private router: Router, private navCtrl: NavController, private authService: AuthService) { }
+  ionViewWillEnter() {
+    this.reload();
+  }
 
-logout(){
-  this.authService.logOut();
- // console.log("POZVAO IZ HALLA");
-  this.router.navigateByUrl('/login');
-}
+  async reload() {
+    this.hallTables = await this.utility.getTablesForArea(1);
+  }
 
-
-
+  logout() {
+    this.authService.logOut();
+    this.router.navigateByUrl('/login');
+  }
 }

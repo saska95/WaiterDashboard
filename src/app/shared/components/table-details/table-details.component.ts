@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { finished } from 'node:stream';
 import { ApiService } from 'src/app/services/api.service';
 import { OrderStatus } from '../../enums/OrderStatus.enum';
 import { Order } from '../../models/Order';
@@ -12,6 +11,16 @@ import { MenuComponent } from '../menu/menu.component';
   styleUrls: ['./table-details.component.scss'],
 })
 export class TableDetailsComponent implements OnInit {
+  @Input() tableJsonNumber: number;
+  @Input() tableActiveOrderId: any;
+  order: Order = {
+    status: OrderStatus.UNPAID,
+    creatingTime: new Date(1995, 5, 6),
+    finishingTime: new Date(2023, 5, 6),
+    waiterId: 3,
+    tableId: 3,
+  };
+
   //GET
   public orderItemsArray = [
     // {
@@ -35,24 +44,20 @@ export class TableDetailsComponent implements OnInit {
     private apiService: ApiService
   ) {}
 
-  ngOnInit() {
-    // Ovde treba da citas iz baze orderItemsArrah
-    //  this.getAllOrders().subscribe(orders => this.orderItemsArray=orders); <- get
+  async ngOnInit() {
+    if (this.tableActiveOrderId !== -1) {
+      const res = await this.apiService.getOrderItems(this.tableActiveOrderId);
+      console.log(res);
+      for (const property in res) {
+        console.log(res[property]);
+        this.orderItemsArray.push(res[property]);
+        this.sum += res[property].amount;
+      }
+    }
+    // this.orderItemsArray =
   }
 
   dismiss() {
-    // const order: Order ={
-    //     id: 3,
-    //     status: OrderStatus.UNPAID ,
-    //     creatingTime: new Date,
-    //     finishingTime: null,
-    //     waiterId: 3,
-    //     tableId: 3
-    //   }
-
-    //   console.log(order,"ORDER NOVI");
-    //   this.apiService.saveOrder( JSON.stringify(order));
-
     this.modalController.dismiss();
   }
 
@@ -84,11 +89,24 @@ export class TableDetailsComponent implements OnInit {
       component: MenuComponent,
       id: 'menu',
     });
-    modal.onDidDismiss().then((data) => {
+    modal.onDidDismiss().then(async (data) => {
       const res = data.data?.res;
       if (res) {
+        if (this.tableActiveOrderId === -1) {
+          const resOrder = await this.apiService.saveOrder(this.order);
+          this.tableActiveOrderId = resOrder.name;
+          await this.apiService.setActiveOrderId(
+            this.tableJsonNumber,
+            this.tableActiveOrderId
+          );
+        }
+        // res.orderId = this.tableActiveOrderId;
+        console.log(this.orderItemsArray);
+
         this.orderItemsArray.push(res);
         this.sum += res.amount;
+        // moze se poboljsati da ne budu da elementa ako su ista nego da se kolicina poveca
+        await this.apiService.saveOrderItem(res, this.tableActiveOrderId);
       }
     });
     return await modal.present();

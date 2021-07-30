@@ -26,22 +26,16 @@ export class CategoryMenuComponent implements OnInit {
 
   setQuantity(quantity) {
     this.quantity = quantity.data;
-    console.log("NOVI");
   }
-
-
-
 
   add() {
     //POST
     if (this.selectedIndex !== undefined && this.quantity > 0) {
-
       this.modalController.dismiss({
         ...this.products[this.selectedIndex],
         quantity: this.quantity,
         amount: this.quantity * this.products[this.selectedIndex].price,
       });
     }
-
   }
 }

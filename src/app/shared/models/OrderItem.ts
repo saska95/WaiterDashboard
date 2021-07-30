@@ -1,6 +1,6 @@
-export interface Area{
-id: number;
-amount: number;
-totalprice: number;
-
+export interface OrderItem {
+  id: number;
+  amount: number;
+  totalprice: number;
+  orderId: string;
 }
