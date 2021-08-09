@@ -18,7 +18,11 @@ export class GardenTabPage {
     private utility: Utility
   ) {}
 
-  async ionViewWillEnter() {
+  ionViewWillEnter() {
+    this.reload();
+  }
+
+  async reload() {
     this.gardenTables = await this.utility.getTablesForArea(2);
   }
 

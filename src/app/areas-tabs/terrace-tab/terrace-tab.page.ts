@@ -18,7 +18,11 @@ export class TerraceTabPage {
     private utility: Utility
   ) {}
 
-  async ionViewWillEnter() {
+  ionViewWillEnter() {
+    this.reload();
+  }
+
+  async reload() {
     this.terraceTables = await this.utility.getTablesForArea(3);
   }
 
