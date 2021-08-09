@@ -17,6 +17,11 @@
       background-color: rgba(233, 31, 119, 0.912);
     }
   }
+  &.occupied-my {
+    .table {
+      background-color: rgba(67, 25, 163, 0.912);
+    }
+  }
 
   .chair {
     background-color: rgb(28, 152, 156);

@@ -1,5 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { AuthService } from 'src/app/auth/auth.service';
+import { ApiService } from 'src/app/services/api.service';
 import { TableDetailsComponent } from '../table-details/table-details.component';
 
 @Component({
@@ -14,18 +16,30 @@ export class TableComponent implements OnInit {
   @Output('reload') reload: EventEmitter<any> = new EventEmitter();
 
   numbers: number[];
-  tableDetails: any;
+  public orderDetails: any;
+  public loggedUser: any;
   jsonNumber: number;
 
-  constructor(public modalController: ModalController) {}
+  constructor(
+    public modalController: ModalController,
+    public apiService: ApiService,
+    public authService: AuthService
+  ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     if (!this.size || (this.size !== 2 && this.size !== 3 && this.size !== 4)) {
       this.size = 4;
     }
     this.numbers = Array(this.size)
       .fill(0)
       .map((x, i) => i);
+
+    if (this.activeOrderId !== -1) {
+      this.orderDetails = await this.apiService.getOrderDetails(
+        this.activeOrderId
+      );
+      this.loggedUser = await this.authService.getLoggedUser();
+    }
   }
 
   async openTableDetails(idStola: number) {

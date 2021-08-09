@@ -37,9 +37,15 @@ export class AuthService {
         )
         .subscribe(
           async (res) => {
+            console.log(res);
+
             await Storage.set({
               key: 'isAuthenticated',
               value: JSON.stringify(true),
+            });
+            await Storage.set({
+              key: 'loggedUser',
+              value: JSON.stringify(res),
             });
             this.router.navigateByUrl('/areas-tabs');
             resolve(res);
@@ -56,5 +62,15 @@ export class AuthService {
       key: 'isAuthenticated',
       value: JSON.stringify(false),
     });
+    await Storage.remove({
+      key: 'loggedUser',
+    });
+  }
+
+  async getLoggedUser() {
+    const res = await Storage.get({
+      key: 'loggedUser',
+    });
+    return JSON.parse(res.value);
   }
 }

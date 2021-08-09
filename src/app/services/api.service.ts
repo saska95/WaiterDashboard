@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { take } from 'rxjs/operators';
 import { Order } from '../shared/models/Order';
 import { OrderItem } from '../shared/models/OrderItem';
+import { OrderStatus } from '../shared/enums/OrderStatus.enum';
 
 //Dostupini na nivou celog projekta
 @Injectable({
@@ -63,11 +64,44 @@ export class ApiService {
       .toPromise();
   }
 
+  getOrderDetails(orderId: number) {
+    return this.http
+      .get<any>(
+        `https://waiterdashboard-default-rtdb.europe-west1.firebasedatabase.app/database/4/order/${orderId}.json`
+      )
+      .pipe(take(1))
+      .toPromise();
+  }
+
   saveOrderItem(data: OrderItem, orderId: string) {
     return this.http
       .post<any>(
         `https://waiterdashboard-default-rtdb.europe-west1.firebasedatabase.app/database/4/order/${orderId}/orderItems.json`,
         data
+      )
+      .pipe(take(1))
+      .toPromise();
+  }
+
+  removeOrderItem(orderItemId: string, orderId: string) {
+    return this.http
+      .delete<any>(
+        `https://waiterdashboard-default-rtdb.europe-west1.firebasedatabase.app/database/4/order/${orderId}/orderItems/${orderItemId}.json`
+      )
+      .pipe(take(1))
+      .toPromise();
+  }
+
+  changeOrderItemQuantity(
+    orderItemId: string,
+    orderId: string,
+    quantity: number,
+    amount: number
+  ) {
+    return this.http
+      .patch<any>(
+        `https://waiterdashboard-default-rtdb.europe-west1.firebasedatabase.app/database/4/order/${orderId}/orderItems/${orderItemId}.json`,
+        { quantity, amount }
       )
       .pipe(take(1))
       .toPromise();
@@ -88,6 +122,16 @@ export class ApiService {
       .patch<any>(
         `https://waiterdashboard-default-rtdb.europe-west1.firebasedatabase.app/database/3/table/${tableId}.json`,
         { activeOrderId: tableActiveOrderId }
+      )
+      .pipe(take(1))
+      .toPromise();
+  }
+
+  closeOrder(orderId: string, finishingTime: Date, status: OrderStatus) {
+    return this.http
+      .patch<any>(
+        `https://waiterdashboard-default-rtdb.europe-west1.firebasedatabase.app/database/4/order/${orderId}.json`,
+        { finishingTime, status }
       )
       .pipe(take(1))
       .toPromise();

@@ -1,6 +1,12 @@
 <div
   [ngClass]="
-    'table-holder size' + size + (activeOrderId !== -1 ? ' occupied' : '')
+    'table-holder size' +
+    size +
+    (activeOrderId !== -1
+      ? orderDetails?.waiterId === loggedUser?.localId
+        ? ' occupied-my'
+        : ' occupied'
+      : '')
   "
   (click)="openTableDetails(this.id)"
 >
