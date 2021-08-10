@@ -33,7 +33,7 @@ export class CategoryMenuComponent implements OnInit {
     if (this.selectedIndex !== undefined && this.quantity > 0) {
       this.modalController.dismiss({
         ...this.products[this.selectedIndex],
-        quantity: this.quantity,
+        quantity: Number(this.quantity),
         amount: this.quantity * this.products[this.selectedIndex].price,
       });
     }

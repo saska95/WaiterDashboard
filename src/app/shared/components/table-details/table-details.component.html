@@ -33,7 +33,7 @@
         <ion-button fill="clear" (click)="decreaseQuantity(index)">
           <ion-icon name="remove-outline"></ion-icon>
         </ion-button>
-        <ion-button fill="clear" (click)="increaseQuantity(index)">
+        <ion-button fill="clear" (click)="increaseQuantity(index, 1)">
           <ion-icon name="add"></ion-icon>
         </ion-button>
         <ion-button fill="clear" (click)="removeItem(index)">
@@ -55,7 +55,12 @@
       <div class="sum-price">{{ sum }}</div>
     </div>
 
-    <ion-button class="check-button" expand="block" fill="clear">
+    <ion-button
+      class="check-button"
+      expand="block"
+      fill="clear"
+      (click)="checkout()"
+    >
       Check
     </ion-button>
   </ion-card>

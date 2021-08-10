@@ -29,7 +29,6 @@ export class TableDetailsComponent implements OnInit {
   async ngOnInit() {
     if (this.tableActiveOrderId !== -1) {
       const res = await this.apiService.getOrderItems(this.tableActiveOrderId);
-      console.log(res);
 
       for (const property in res) {
         const item = res[property];
@@ -44,11 +43,11 @@ export class TableDetailsComponent implements OnInit {
     this.modalController.dismiss();
   }
 
-  async increaseQuantity(index) {
-    this.orderItemsArray[index].quantity++;
+  async increaseQuantity(index, quantity) {
+    this.orderItemsArray[index].quantity += quantity;
     this.orderItemsArray[index].amount =
       this.orderItemsArray[index].quantity * this.orderItemsArray[index].price;
-    this.sum += this.orderItemsArray[index].price;
+    this.sum += this.orderItemsArray[index].price * quantity;
 
     await this.apiService.changeOrderItemQuantity(
       this.orderItemsArray[index].firebaseId,
@@ -117,6 +116,16 @@ export class TableDetailsComponent implements OnInit {
             this.tableActiveOrderId
           );
         }
+
+        const itemIndex = this.orderItemsArray.findIndex(
+          (el) => el.id === res.id
+        );
+
+        if (itemIndex > -1) {
+          this.increaseQuantity(itemIndex, res.quantity);
+          return;
+        }
+
         this.sum += res.amount;
         const res2 = await this.apiService.saveOrderItem(
           res,
@@ -127,5 +136,15 @@ export class TableDetailsComponent implements OnInit {
       }
     });
     return await modal.present();
+  }
+
+  async checkout() {
+    await this.apiService.setActiveOrderId(this.tableJsonNumber, -1);
+    await this.apiService.closeOrder(
+      this.tableActiveOrderId,
+      new Date(),
+      OrderStatus.PAID
+    );
+    this.dismiss();
   }
 }

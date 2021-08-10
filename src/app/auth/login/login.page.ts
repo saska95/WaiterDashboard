@@ -21,6 +21,7 @@ export class LoginPage implements OnInit {
   isEmailValid = true;
   isPasswordValid = true;
   user: Waiter = null;
+  apiError = false;
   constructor(
     private navCtrl: NavController,
     private authService: AuthService
@@ -33,10 +34,15 @@ export class LoginPage implements OnInit {
   }
 
   async login() {
+    this.apiError = false;
     this.user = {
       email: this.loginForm.get('email').value,
       password: this.loginForm.get('password').value,
     };
-    await this.authService.logIn(this.user);
+    try {
+      await this.authService.logIn(this.user);
+    } catch (error) {
+      this.apiError = true;
+    }
   }
 }

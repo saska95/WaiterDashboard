@@ -12,22 +12,40 @@
             <ion-card-content>
               <ion-item>
                 <ion-label position="floating">Email:</ion-label>
-                <ion-input formControlName="email" type="email" placeholder="Enter email...">
+                <ion-input
+                  formControlName="email"
+                  type="email"
+                  placeholder="Enter email..."
+                >
                 </ion-input>
               </ion-item>
-              <p *ngIf="!loginForm.get('email').valid && loginForm.touched">Please enter valid email!</p>
+              <p *ngIf="!loginForm.get('email').valid && loginForm.touched">
+                Please enter valid email!
+              </p>
               <ion-item>
                 <ion-label position="floating"> Password:</ion-label>
-                <ion-input formControlName="password" type="password" placeholder="Enter password..."></ion-input>
+                <ion-input
+                  formControlName="password"
+                  type="password"
+                  placeholder="Enter password..."
+                ></ion-input>
               </ion-item>
-              <p *ngIf="!loginForm.get('password').valid && loginForm.touched">Password is required field!</p>
+              <p *ngIf="!loginForm.get('password').valid && loginForm.touched">
+                Password is required field!
+              </p>
+              <p *ngIf="apiError">Wrong email or password!</p>
             </ion-card-content>
           </ion-card>
         </ion-col>
       </ion-row>
     </ion-grid>
 
-    <ion-button class="login-button" type="submit" fill="clear">
+    <ion-button
+      class="login-button"
+      type="submit"
+      fill="clear"
+      [disabled]="!loginForm.get('email').valid || !loginForm.get('password').valid"
+    >
       Login
     </ion-button>
   </form>

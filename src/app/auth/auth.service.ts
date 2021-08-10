@@ -37,8 +37,6 @@ export class AuthService {
         )
         .subscribe(
           async (res) => {
-            console.log(res);
-
             await Storage.set({
               key: 'isAuthenticated',
               value: JSON.stringify(true),
