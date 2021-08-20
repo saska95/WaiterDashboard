@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/auth/auth.service';
 import { Utility } from 'src/app/services/utility';
 import { Table } from 'src/app/shared/models/Table';
@@ -13,9 +13,9 @@ export class HallTabPage {
   hallTables: Table[];
 
   constructor(
-    private router: Router,
     private authService: AuthService,
-    private utility: Utility
+    private utility: Utility,
+    private navCtrl: NavController
   ) {}
 
   ionViewWillEnter() {
@@ -28,6 +28,6 @@ export class HallTabPage {
 
   logout() {
     this.authService.logOut();
-    this.router.navigateByUrl('/login');
+    this.navCtrl.navigateRoot('/login');
   }
 }

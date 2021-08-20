@@ -18,8 +18,6 @@ export class LoginPage implements OnInit {
     ]),
   });
 
-  isEmailValid = true;
-  isPasswordValid = true;
   user: Waiter = null;
   apiError = false;
   constructor(

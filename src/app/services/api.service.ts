@@ -34,8 +34,6 @@ export class ApiService {
     );
   }
 
-  // Ovde treba da narpravis POST i GET za ordersItemSArray
-
   //Podaci o svim stolovima za dati json (na klik)
   getTableDetails(data: any) {
     return this.http.get<any>(
