@@ -3,9 +3,7 @@ import { environment } from 'src/environments/environment';
 import { Waiter } from '../shared/models/Waiter';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Plugins } from '@capacitor/core';
-// eslint-disable-next-line @typescript-eslint/naming-convention
-const { Storage } = Plugins;
+import { Storage } from '@capacitor/storage';
 
 interface AuthResponseData {
   kind: string;
