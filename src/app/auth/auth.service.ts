@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Waiter } from '../shared/models/Waiter';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { Plugins } from '@capacitor/core';
+import { NavController } from '@ionic/angular';
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const { Storage } = Plugins;
 
@@ -21,7 +21,7 @@ interface AuthResponseData {
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private navCtrl: NavController) {}
 
   async isUserAuthenticated() {
     const ret = await Storage.get({ key: 'isAuthenticated' });
@@ -45,7 +45,7 @@ export class AuthService {
               key: 'loggedUser',
               value: JSON.stringify(res),
             });
-            this.router.navigateByUrl('/areas-tabs');
+            this.navCtrl.navigateRoot('/areas-tabs');
             resolve(res);
           },
           (err) => {
